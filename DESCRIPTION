@@ -1,18 +1,28 @@
 Package: mvWeightedCPI
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID")
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID")
-Description: What the package does (one paragraph).
+Title: Calculates Standard Consumer Price (CPI) Indices Using Multivariate
+    Weights
+Version: 0.0.1
+Authors@R: c(
+    person("George Kyei", "AGYEN", , "gkagyen@live.com", role = "aut"),
+    person("John Coker", "AYIMAH", , "jayimah@htu.edu.gh", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-3619-8226")),
+    person("Paul A.", "AGBODZA", role = "aut")
+  )
+Description: automatically generates proposed multivariate weighted
+    indexing scheme for price data.  mvWeightedCPI generates weights for
+    both base and current years respectively, from base and current year
+    price datasets. You provide the needed data and mvWeightedCPI works
+    behind the scene to generate your weights. This approach is convenient
+    since it does not require incurring additional cost for conducting
+    household expenditure survey to generate CPI for the determination of
+    inflation figures.
 License: MIT + file LICENSE
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
 Depends: 
     R (>= 2.10)
+Imports: 
+    dplyr,
+    psych
+Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1

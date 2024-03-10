@@ -1,15 +1,17 @@
 #' Multivariate Weighted Indices
 #'
-#' @param data Dataset of prices that must contain columns for
-#' a base year and current year prices. There must be equal number
+#' @param data Dataset of prices that must contain columns of prices
+#' from a base year and a current year. There must be equal number
 #' of base and current year price variables.
 #'
-#' @return a vector of indices for calculating consumer price index (CPI)
+#' @return a vector of indices for calculating consumer price index (CPI)/inflation
 #' @export
+#' @importFrom stats cor weighted.mean
+#' @importFrom dplyr all_of
 #'
-#' @examples mw_indices()
-#' @examples mw_indices(data = empirical_Data1)
-#' @examples mw_indices(data = empirical_Data2)
+#' @examples mvw_cpi()
+#' @examples mvw_cpi(data = empirical_Data1)
+#' @examples mvw_cpi(data = empirical_Data2)
 mvw_cpi <- function(data = random_data) {
 
   #create list of empirical data
@@ -18,15 +20,15 @@ mvw_cpi <- function(data = random_data) {
 
   #choose a random empirical data for the multivariate weights function
   random_index = sample(length(data_list), size = 1, replace = T)
-  random_data = as_tibble(data_list[[random_index]])
+  random_data = dplyr::as_tibble(data_list[[random_index]])
 
   #split data into current and base prices data sets
   p <- ncol(random_data)/2
-  base_prices <- random_data |> select(1:all_of(p))
-  current_prices <- random_data |> select(p + 1:p)
+  base_prices <- random_data |> dplyr::select(1:all_of(p))
+  current_prices <- random_data |> dplyr::select(p + 1:p)
 
   #create a relative data by dividing the current prices by the base prices
-  relative_price <- as_tibble(current_prices/base_prices)
+  relative_price <- dplyr::as_tibble(current_prices/base_prices)
 
   #create a correlation matrix for both current and base prices data sets
   cor_base <- cor(base_prices)
@@ -39,8 +41,8 @@ mvw_cpi <- function(data = random_data) {
   #evaluate the principal component analysis factor based on eigen values greater than 1
   m1 <- length(eigen_base[eigen_base > 1]) # number of base prices eigen values greater than 1
   m2 <- length(eigen_base[eigen_base > 1]) # number of current prices eigen values greater than 1
-  PCF_base <- principal(base_prices, nfactors = m1, rotate = 'varimax')
-  PCF_current <- principal(current_prices, nfactors = m2, rotate = 'varimax')
+  PCF_base <- psych::principal(base_prices, nfactors = m1, rotate = 'varimax')
+  PCF_current <- psych::principal(current_prices, nfactors = m2, rotate = 'varimax')
 
   #pick comunality values to calculate Fischer's, Drobish Bowley's, Laspeyres' and
   # Paasche's indices
@@ -60,7 +62,7 @@ mvw_cpi <- function(data = random_data) {
   mwCPI_Drob <- (mwCPI_Lasp + mwCPI_Paas)/2
 
   #combine all the above indices into a dataset
-  index_data <- tibble(mwCPI_Lasp, mwCPI_Paas, mwCPI_Fish, mwCPI_Drob)
+  index_data <- dplyr::tibble(mwCPI_Lasp, mwCPI_Paas, mwCPI_Fish, mwCPI_Drob)
 
   #Finally calculate indices for determining national consumer price index
   national_CPI <- apply(index_data, 2, mean)
