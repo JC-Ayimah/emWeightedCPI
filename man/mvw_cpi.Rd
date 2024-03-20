@@ -4,7 +4,7 @@
 \alias{mvw_cpi}
 \title{Multivariate Weighted Indices}
 \usage{
-mvw_cpi(data = random_data)
+mvw_cpi(data = NULL)
 }
 \arguments{
 \item{data}{Dataset of prices that must contain columns of prices

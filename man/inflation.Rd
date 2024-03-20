@@ -4,22 +4,26 @@
 \alias{inflation}
 \title{Inflation Value}
 \usage{
-inflation(weights = c("fisher", "paashe", "laspeyres", "drobish"))
+inflation(weights = c("fisher", "paashe", "laspeyres", "drobish"), data = NULL)
 }
 \arguments{
 \item{weights}{takes any of the indexes from the multivariate weighted indices that is:
 the output from the \code{mvw_cpi} function, which are either Fishers index (fisher),
 Paashe's index (paashe),Laspeyres index (laspeyres) or Drobish Bowleys index (drobish)}
+
+\item{data}{optional price dataset by user from which inflation is calculated. Uses default
+dataset from \code{mvw_cpi} function if unspecified.}
 }
 \value{
 the inflation value for the period used to determine mvw_cpi indices
 }
 \description{
 The inflation value is calculated from  the \code{mvw_cpi} function. The value calculated
-is for the period specified in the price data provided in the \code{mvw_cpi} function.
-SInce the \code{mvw_cpi} randomly selects either of the two price data provided locally in
+is for the period specified in the price data supplied to the data argument which defaults to
+the price data in the \code{mvw_cpi} function (\code{empirical_Data1} and \code{empirical_Data2}).
+Since the \code{mvw_cpi} randomly selects either of the two price data provided locally in
 the package, the inflation value can be calculated from either the \code{empirical_Data1} or
-\code{emperical_Data2}. Check the help documentation on the datasets for more details.
+\code{emperical_Data2} if no price data is specified in this function. Check the help documentation on the datasets for more details.
 }
 \examples{
 inflation('drobish')

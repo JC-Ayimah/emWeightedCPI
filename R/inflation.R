@@ -2,23 +2,27 @@
 #'
 #' @description
 #' The inflation value is calculated from  the `mvw_cpi` function. The value calculated
-#' is for the period specified in the price data provided in the `mvw_cpi` function.
-#' SInce the `mvw_cpi` randomly selects either of the two price data provided locally in
+#' is for the period specified in the price data supplied to the data argument which defaults to
+#' the price data in the `mvw_cpi` function (`empirical_Data1` and `empirical_Data2`).
+#' Since the `mvw_cpi` randomly selects either of the two price data provided locally in
 #' the package, the inflation value can be calculated from either the `empirical_Data1` or
-#' `emperical_Data2`. Check the help documentation on the datasets for more details.
+#' `emperical_Data2` if no price data is specified in this function. Check the help documentation on the datasets for more details.
 #'
 #' @param weights takes any of the indexes from the multivariate weighted indices that is:
 #'            the output from the `mvw_cpi` function, which are either Fishers index (fisher),
 #'            Paashe's index (paashe),Laspeyres index (laspeyres) or Drobish Bowleys index (drobish)
+#'
+#' @param data optional price dataset by user from which inflation is calculated. Uses default
+#'              dataset from `mvw_cpi` function if unspecified.
 #'
 #' @return the inflation value for the period used to determine mvw_cpi indices
 #' @export
 #'
 #' @examples inflation('drobish')
 #' @examples inflation(weights = 'fisher')
-inflation <- function(weights = c('fisher', 'paashe','laspeyres','drobish')){
+inflation <- function(weights = c('fisher', 'paashe','laspeyres','drobish'), data = NULL){
   #call mvw_cpi function
-  indices <- mvw_cpi() * 100
+  indices <- mvw_cpi(data) * 100
 
   #check validity of specified weight
   if(!weights %in% c('fisher', 'paashe','laspeyres','drobish')){

@@ -12,20 +12,26 @@
 #' @examples mvw_cpi()
 #' @examples mvw_cpi(data = empirical_Data1)
 #' @examples mvw_cpi(data = empirical_Data2)
-mvw_cpi <- function(data = random_data) {
+mvw_cpi <- function(data = NULL) {
+  #check if user provided data
+  if (is.null(data)){
+  #use default data if user does not provide any
+    #create list of empirical data
+    empirical_Data1 <- empirical_Data1
+    empirical_Data2 <- empirical_Data2
+    data_list <- list(empirical_Data1,
+                      empirical_Data2 )
+    #choose a random empirical data for the multivariate weights function
+    random_index = sample(length(data_list), size = 1, replace = T)
+    random_data = dplyr::as_tibble(data_list[[random_index]])
 
-  #create list of empirical data
-  data_list <- list(empirical_Data1,
-                    empirical_Data2 )
-
-  #choose a random empirical data for the multivariate weights function
-  random_index = sample(length(data_list), size = 1, replace = T)
-  random_data = dplyr::as_tibble(data_list[[random_index]])
+    data <- random_data
+  }
 
   #split data into current and base prices data sets
-  p <- ncol(random_data)/2
-  base_prices <- random_data |> dplyr::select(1:all_of(p))
-  current_prices <- random_data |> dplyr::select(p + 1:p)
+  p <- ncol(data)/2
+  base_prices <- data |> dplyr::select(1:all_of(p))
+  current_prices <- data |> dplyr::select(p + 1:p)
 
   #create a relative data by dividing the current prices by the base prices
   relative_price <- dplyr::as_tibble(current_prices/base_prices)
