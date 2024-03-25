@@ -32,10 +32,11 @@ determination of inflation figures.
 
 ## Installation
 
-You can install the development version of mvWeightedCPI like so:
+You can install the development version of mvWeightedCPI from [GitHub](https://github.com/) like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+install.packages("devtools")
+devtools::install_github("JC-Ayimah/mvWeightedCPI")
 ```
 
 ## Package Functions

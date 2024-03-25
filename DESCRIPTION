@@ -6,7 +6,8 @@ Authors@R: c(
     person("John Coker", "AYIMAH", , "jayimah@htu.edu.gh", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-3619-8226")),
     person("George Kyei", "AGYEN", , "gkagyen@live.com", role = "aut"),
-    person("Paul A.", "AGBODZA", role = "aut")
+    person("Paul A.", "AGBODZA", , "pagbodza@gmail.com", role = "ctb",
+           comment = c(ORCID = "0000-0003-0069-5298"))
   )
 Description: automatically generates proposed multivariate weighted
     indexing scheme for price data.  mvWeightedCPI generates weights for
@@ -22,10 +23,10 @@ Depends:
 Imports: 
     dplyr,
     psych
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
-Suggests: 
-    testthat (>= 3.0.0)
-Config/testthat/edition: 3

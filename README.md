@@ -16,10 +16,12 @@ determination of inflation figures.
 
 ## Installation
 
-You can install the development version of mvWeightedCPI like so:
+You can install the development version of mvWeightedCPI from
+[GitHub](https://github.com/) like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+install.packages("devtools")
+devtools::install_github("JC-Ayimah/mvWeightedCPI")
 ```
 
 ## Package Functions
@@ -45,7 +47,7 @@ myData <- data.frame(x1=runif(50, 9.9, 13.7),
 #call the function and specify the price data
 mvw_cpi(data = myData)
 #> mwCPI_Lasp mwCPI_Paas mwCPI_Fish mwCPI_Drob 
-#>   2.567858   2.608901   2.588270   2.588379
+#>   2.496251   2.635175   2.564387   2.565713
 ```
 
 ### mvw_inflation function
@@ -63,7 +65,7 @@ which the inflation is to be determined.
 ``` r
 #calculating inflation using Fishers index
 mvw_inflation(index = 'fisher', data = myData)
-#> [1] "Inflation is 158.83"
+#> [1] "Inflation is 156.44"
 ```
 
 Fishers’ is the ideal index for calculating inflation. The rest of the
@@ -73,7 +75,7 @@ indices generates a warning after calculating inflation
 mvw_inflation(index = 'drobish', data = myData)
 #> Warning in mvw_inflation(index = "drobish", data = myData): Fishers index is
 #> the ideal index for Inflation calculation
-#> [1] "Inflation is 158.84"
+#> [1] "Inflation is 156.57"
 ```
 
 ## Package Datasets
