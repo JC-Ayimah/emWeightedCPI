@@ -9,24 +9,10 @@
 #' @importFrom stats cor weighted.mean
 #' @importFrom dplyr all_of
 #'
-#' @examples mvw_cpi()
-#' @examples mvw_cpi(data = empirical_Data1)
-#' @examples mvw_cpi(data = empirical_Data2)
-mvw_cpi <- function(data = NULL) {
-  #check if user provided data
-  if (is.null(data)){
-  #use default data if user does not provide any
-    #create list of empirical data
-    empirical_Data1 <- empirical_Data1
-    empirical_Data2 <- empirical_Data2
-    data_list <- list(empirical_Data1,
-                      empirical_Data2 )
-    #choose a random empirical data for the multivariate weights function
-    random_index = sample(length(data_list), size = 1, replace = T)
-    random_data = dplyr::as_tibble(data_list[[random_index]])
-
-    data <- random_data
-  }
+#' @examples
+#' mvw_cpi(empirical_Data1)
+#' mvw_cpi(data = empirical_Data2)
+mvw_cpi <- function(data) {
 
   #split data into current and base prices data sets
   p <- ncol(data)/2

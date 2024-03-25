@@ -3,9 +3,9 @@ Title: Calculates Standard Consumer Price Indexes (CPI) Using Multivariate
     Weights
 Version: 0.0.1
 Authors@R: c(
-    person("George Kyei", "AGYEN", , "gkagyen@live.com", role = "aut"),
     person("John Coker", "AYIMAH", , "jayimah@htu.edu.gh", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-3619-8226")),
+    person("George Kyei", "AGYEN", , "gkagyen@live.com", role = "aut"),
     person("Paul A.", "AGBODZA", role = "aut")
   )
 Description: automatically generates proposed multivariate weighted

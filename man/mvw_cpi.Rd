@@ -4,7 +4,7 @@
 \alias{mvw_cpi}
 \title{Multivariate Weighted Indices}
 \usage{
-mvw_cpi(data = NULL)
+mvw_cpi(data)
 }
 \arguments{
 \item{data}{Dataset of prices that must contain columns of prices
@@ -18,7 +18,6 @@ a vector of indices for calculating consumer price index (CPI)/inflation
 Multivariate Weighted Indices
 }
 \examples{
-mvw_cpi()
-mvw_cpi(data = empirical_Data1)
+mvw_cpi(empirical_Data1)
 mvw_cpi(data = empirical_Data2)
 }
