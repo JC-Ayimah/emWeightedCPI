@@ -7,12 +7,11 @@
 mvw_cpi(data)
 }
 \arguments{
-\item{data}{Dataset of prices that must contain columns of prices
-from a base year and a current year. There must be equal number
-of base and current year price variables.}
+\item{data}{Dataset of prices that must contain columns of a base and current year prices.
+There must be equal number of base and current year price variables.}
 }
 \value{
-a vector of indices for calculating consumer price index (CPI)/inflation
+a vector of consumer price indexes for calculating inflation
 }
 \description{
 Multivariate Weighted Indices

@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(mvWeightedCPI)
+library(emWeightedCPI)
 
-test_check("mvWeightedCPI")
+test_check("emWeightedCPI")

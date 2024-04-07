@@ -1,10 +1,9 @@
 #' Multivariate Weighted Indices
 #'
-#' @param data Dataset of prices that must contain columns of prices
-#' from a base year and a current year. There must be equal number
-#' of base and current year price variables.
+#' @param data Dataset of prices that must contain columns of a base and current year prices.
+#' There must be equal number of base and current year price variables.
 #'
-#' @return a vector of indices for calculating consumer price index (CPI)/inflation
+#' @return a vector of consumer price indexes for calculating inflation
 #' @export
 #' @importFrom stats cor weighted.mean
 #' @importFrom dplyr all_of
@@ -19,7 +18,7 @@ mvw_cpi <- function(data) {
   base_prices <- data |> dplyr::select(1:all_of(p))
   current_prices <- data |> dplyr::select(p + 1:p)
 
-  #create a relative data by dividing the current prices by the base prices
+  #create a relative price data by dividing the current prices by the base prices
   relative_price <- dplyr::as_tibble(current_prices/base_prices)
 
   #create a correlation matrix for both current and base prices data sets

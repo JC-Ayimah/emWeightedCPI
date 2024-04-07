@@ -9,9 +9,13 @@
 
 A data frame with 89 rows and 110 columns:
 \describe{
-\item{B1,B2,B3...B55}{a simulated price data of 55 different items. the columns B1 to B55
+\item{B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,B16,B17,B18,B19,B20,B21,B22,B23,B24,B25,
+B26,B27,B28,B29,B30,B31,B32,B33,B34,B35,B36,B37,B38,B39,B40,B41,B42,B43,B44,B45,B46,B47,B48,
+B49,B50,B51,B52,B53,B54,B55}{a simulated price data of 55 different items. the columns B1 to B55
 denotes price data for a base year of 2002.}
-\item{C1,C2,C3...C55}{a simulated price data of 55 different items. the columns C1 to C55
+\item{C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,
+C26,C27,C28,C29,C30,C31,C32,C33,C34,C35,C36,C37,C38,C39,C40,C41,C42,C43,C44,C45,C46,C47,C48,
+C49,C50,C51,C52,C53,C54,C55}{a simulated price data of 55 different items. the columns C1 to C55
 denotes price data for a current year of 2012.}
 ...
 }

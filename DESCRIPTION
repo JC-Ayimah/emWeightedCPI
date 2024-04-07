@@ -1,6 +1,6 @@
-Package: mvWeightedCPI
-Title: Calculates Standard Consumer Price Indexes (CPI) Using Multivariate
-    Weights
+Package: emWeightedCPI
+Title: Calculates Standard Consumer Price Indices (CPI) and Inflation
+    Using Expenditure Based and Multivariate Weights
 Version: 0.0.1
 Authors@R: c(
     person("John Coker", "AYIMAH", , "jayimah@htu.edu.gh", role = c("aut", "cre"),
@@ -9,14 +9,18 @@ Authors@R: c(
     person("Paul A.", "AGBODZA", , "pagbodza@gmail.com", role = "ctb",
            comment = c(ORCID = "0000-0003-0069-5298"))
   )
-Description: automatically generates proposed multivariate weighted
-    indexing scheme for price data.  mvWeightedCPI generates weights for
-    both base and current years respectively, from base and current year
-    price datasets. You provide the needed data and mvWeightedCPI works
-    behind the scene to generate your weights. This approach is convenient
-    since it does not require incurring additional cost for conducting
-    household expenditure survey to generate CPI for the determination of
-    inflation figures.
+Description: The package automates a proposed multivariate weighted
+    indexing scheme for price data.  The multivariate weighted consumer
+    price index (MVWCPI) generates weights for both base and current
+    years, respectively, from base and current year price datasets using
+    communality obtained after performing factor analysis. The package
+    takes base and current year price data as inputs.  This approach is
+    convenient since it does not require incurring additional cost for
+    conducting household expenditure survey to generate CPI for the
+    determination of inflation figures.  However, users can still generate
+    the Laspeyres’ CPI and inflation using base year expenditure data
+    only.
+URL: http://dx.doi.org/10.9734/bpi/mono/978-81-19315-32-1 
 License: MIT + file LICENSE
 Depends: 
     R (>= 2.10)
